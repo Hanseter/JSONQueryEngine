@@ -1,20 +1,18 @@
 package com.github.hanseter.json.queryengine
 
-import org.json.JSONObject
+class OrQuery(private val queries: List<Query>) : Query {
 
-class OrQuery(val queries: List<Query>) : Query {
+	override fun matches(data: QueryableData): Boolean = queries.any { it.matches(data) }
 
-	override fun matches(data: QuerieableData): Boolean = queries.any { it.matches(data) }
-
-	public class OrQueryBuilder : QueryBuilder<OrQuery> {
+	class OrQueryBuilder : QueryBuilder<OrQuery> {
 		private var subQueries = listOf<QueryBuilder<*>>()
 
 		fun addSubQuery(query: QueryBuilder<*>) {
-			subQueries += query
+			subQueries = subQueries + query
 		}
 
 		fun removeSubQuery(query: QueryBuilder<*>) {
-			subQueries -= query
+			subQueries = subQueries - query
 		}
 
 		fun setSubQueries(subQueries: List<QueryBuilder<*>>) {
