@@ -1,5 +1,6 @@
 package com.github.hanseter.json.queryengine
 
+import com.github.hanseter.json.queryengine.queries.AttributeExistsQueryBuilder
 import org.json.JSONObject
 import org.junit.jupiter.api.Test
 
@@ -13,7 +14,7 @@ class AttributeExistsQueryTest {
 
 	@Test
 	fun findsElements() {
-		val query = AttributeExistsQuery(AttributePath("nested.decimal"))
+		val query = AttributeExistsQueryBuilder().withAttributePath("nested.decimal").build()!!
 		val result = objects.filter { query.matches(it) }.toList()
 		assert(result.size == 1)
 		assert(result.single().data.get("int") == 815)
