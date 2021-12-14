@@ -14,11 +14,21 @@ class LessThanQueryBuilder : AttributeQueryBuilder<LessThanQueryBuilder>() {
         return this
     }
 
-    fun withUpperBound(upperBound: Number):LessThanQueryBuilder {
+    fun withUpperBound(upperBound: Double):LessThanQueryBuilder {
         this.queryCreator = { path ->
             Query { data ->
                 val value = path.getNumber(data.data) ?: return@Query false
-                value.toDouble() <= upperBound.toDouble()
+                value.toDouble() <= upperBound
+            }
+        }
+        return this
+    }
+
+    fun withUpperBound(upperBound: Long):LessThanQueryBuilder {
+        this.queryCreator = { path ->
+            Query { data ->
+                val value = path.getNumber(data.data) ?: return@Query false
+                value.toLong() <= upperBound
             }
         }
         return this

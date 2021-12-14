@@ -18,9 +18,16 @@ class AttributeEqualsQueryBuilder : AttributeQueryBuilder<AttributeEqualsQueryBu
         return this
     }
 
-    fun withValue(value: Number): AttributeEqualsQueryBuilder {
+    fun withValue(value: Double): AttributeEqualsQueryBuilder {
         this.queryCreator = { path ->
-            Query { data -> path.getNumber(data.data) == value }
+            Query { data -> path.getNumber(data.data)?.toDouble() == value }
+        }
+        return this
+    }
+
+    fun withValue(value: Long): AttributeEqualsQueryBuilder {
+        this.queryCreator = { path ->
+            Query { data -> path.getNumber(data.data)?.toLong() == value }
         }
         return this
     }
