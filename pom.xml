@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.hanseter</groupId>
     <artifactId>json-query-engine</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
 
     <packaging>bundle</packaging>
     <name>JSON Query Engine</name>
@@ -26,7 +26,7 @@
             <plugin>
                 <artifactId>kotlin-maven-plugin</artifactId>
                 <groupId>org.jetbrains.kotlin</groupId>
-                <version>1.5.31</version>
+                <version>1.7.21</version>
                 <executions>
                     <execution>
                         <id>compile</id>
@@ -54,7 +54,7 @@
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-stdlib</artifactId>
-            <version>1.5.31</version>
+            <version>1.7.21</version>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>

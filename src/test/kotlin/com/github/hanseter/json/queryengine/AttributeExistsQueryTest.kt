@@ -14,7 +14,7 @@ class AttributeExistsQueryTest {
 
 	@Test
 	fun findsElements() {
-		val query = AttributeExistsQueryBuilder().withAttributePath("nested.decimal").build()!!
+		val query = AttributeExistsQueryBuilder().withAttributePath("nested/decimal").build()!!
 		val result = objects.filter { query.matches(it) }.toList()
 		assert(result.size == 1)
 		assert(result.single().data.get("int") == 815)

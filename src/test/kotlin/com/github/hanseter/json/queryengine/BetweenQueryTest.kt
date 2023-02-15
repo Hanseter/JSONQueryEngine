@@ -17,7 +17,7 @@ class BetweenQueryTest {
     @Test
     fun findsNumberElements() {
         val query =
-            BetweenQueryBuilder().withAttributePath("nested.decimal").withBounds(1.0, 3.0).build()!!
+            BetweenQueryBuilder().withAttributePath("nested/decimal").withBounds(1.0, 3.0).build()!!
         val result = objects.filter { query.matches(it) }.toList()
         assert(result.size == 1)
         assert(result.map { it.id } == listOf(1))

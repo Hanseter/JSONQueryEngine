@@ -1,9 +1,16 @@
 package com.github.hanseter.json.queryengine
 
 import org.json.JSONObject
+import org.json.JSONPointer
 
-class AttributePath(stringRepresentation: String) {
-    private val path: List<String> = stringRepresentation.split(".")
+/**
+ * This class is basically a feature deprived json pointer. It only supports absolute pointers from the root node.
+ */
+class AttributePath(path: List<String>) {
+
+    val path = path.map { unescape(it) }
+
+    constructor(stringRepresentation: String) : this(stringRepresentation.split("/"))
 
     fun getValue(data: JSONObject): Any? =
         getSubSection(data)?.opt(getAttributeName())
@@ -27,12 +34,20 @@ class AttributePath(stringRepresentation: String) {
     fun findPossibleAttributePaths(fieldNames: JSONObject): Sequence<String> =
         getSubSection(fieldNames)?.keySet()?.asSequence()
             ?.filter { it.startsWith(getAttributeName()) }?.distinct()
-            ?.map { (path.dropLast(1) + it).joinToString(".") } ?: emptySequence()
+            ?.map { (path.dropLast(1) + it).joinToString("/") } ?: emptySequence()
 //		objects.asSequence().map { getSubSection(it) }.filterNotNull().flatMap { it.keySet().asSequence() }
 //			.filter { it.startsWith(getAttributeName()) }
-//			.distinct().map { (path.dropLast(1) + it).joinToString(".") }
+//			.distinct().map { (path.dropLast(1) + it).joinToString("/") }
 
-    override fun toString(): String = path.joinToString(".")
+    override fun toString(): String = path.map { }.joinToString("/")
+
+    private fun unescape(token: String) = token
+        .replace("~1", "/")
+        .replace("~0", "~")
+
+    private fun escape(token: String) = token
+        .replace("~", "~0")
+        .replace("/", "~1")
 
     private fun JSONObject.optBooleanNull(key: String): Boolean? =
         when (val value = opt(key)) {
