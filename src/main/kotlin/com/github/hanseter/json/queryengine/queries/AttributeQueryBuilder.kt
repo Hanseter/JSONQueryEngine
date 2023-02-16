@@ -10,12 +10,20 @@ abstract class AttributeQueryBuilder<T> : QueryBuilder {
         private set
     protected var queryCreator: ((AttributePath) -> Query)? = null
 
-    fun withAttributePath(path: String) : T {
-        if (path.isEmpty()) {
-            this.attributePath = null
-        } else {
-            this.attributePath = AttributePath(path)
-        }
+    fun withAttributePath(path: String): T {
+        this.attributePath = if (path.isEmpty()) null
+        else AttributePath(path)
+        return this as T
+    }
+
+    fun withAttributePath(path: List<String>): T {
+        this.attributePath = if (path.isEmpty()) null
+        else AttributePath(path)
+        return this as T
+    }
+
+    fun withAttributePath(path: AttributePath?): T {
+        this.attributePath = path
         return this as T
     }
 
