@@ -1,6 +1,6 @@
-package com.github.hanseter.json.queryengine.queries
+package io.github.hanseter.json.queryengine.queries
 
-import com.github.hanseter.json.queryengine.AttributePath
+import io.github.hanseter.json.queryengine.AttributePath
 import com.github.hanseter.json.queryengine.Query
 import com.github.hanseter.json.queryengine.QueryBuilder
 

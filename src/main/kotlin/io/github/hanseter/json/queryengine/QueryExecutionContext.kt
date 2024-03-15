@@ -1,4 +1,4 @@
-package com.github.hanseter.json.queryengine
+package io.github.hanseter.json.queryengine
 
 interface QueryExecutionContext<T : QueryableData> {
 	fun getNextElement(): T?

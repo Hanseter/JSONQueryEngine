@@ -1,34 +1,34 @@
-package com.github.hanseter.json.queryengine.queries
+package io.github.hanseter.json.queryengine.queries
 
 import com.github.hanseter.json.queryengine.Query
 
-class LessThanQueryBuilder : AttributeQueryBuilder<LessThanQueryBuilder>() {
+class GreaterThanQueryBuilder : AttributeQueryBuilder<GreaterThanQueryBuilder>() {
 
-    fun withUpperBound(upperBound: String):LessThanQueryBuilder {
+    fun withLowerBound(lowerBound: String): GreaterThanQueryBuilder {
         this.queryCreator = { path ->
             Query { data ->
                 val value = path.getString(data.data) ?: return@Query false
-                value <= upperBound
+                value >= lowerBound
             }
         }
         return this
     }
 
-    fun withUpperBound(upperBound: Double):LessThanQueryBuilder {
+    fun withLowerBound(lowerBound: Double): GreaterThanQueryBuilder {
         this.queryCreator = { path ->
             Query { data ->
                 val value = path.getNumber(data.data) ?: return@Query false
-                value.toDouble() <= upperBound
+                value.toDouble() >= lowerBound
             }
         }
         return this
     }
 
-    fun withUpperBound(upperBound: Long):LessThanQueryBuilder {
+    fun withLowerBound(lowerBound: Long): GreaterThanQueryBuilder {
         this.queryCreator = { path ->
             Query { data ->
                 val value = path.getNumber(data.data) ?: return@Query false
-                value.toLong() <= upperBound
+                value.toLong() >= lowerBound
             }
         }
         return this

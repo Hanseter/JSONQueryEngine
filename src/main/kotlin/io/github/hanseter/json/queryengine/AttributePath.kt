@@ -1,4 +1,4 @@
-package com.github.hanseter.json.queryengine
+package io.github.hanseter.json.queryengine
 
 import org.json.JSONObject
 import org.json.JSONPointer

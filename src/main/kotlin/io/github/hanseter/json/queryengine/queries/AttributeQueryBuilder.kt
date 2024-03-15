@@ -1,28 +1,28 @@
-package com.github.hanseter.json.queryengine.queries
+package io.github.hanseter.json.queryengine.queries
 
-import com.github.hanseter.json.queryengine.AttributePath
+import io.github.hanseter.json.queryengine.AttributePath
 import com.github.hanseter.json.queryengine.Query
 import com.github.hanseter.json.queryengine.QueryBuilder
 
 abstract class AttributeQueryBuilder<T> : QueryBuilder {
 
-    var attributePath: AttributePath? = null
+    var attributePath: io.github.hanseter.json.queryengine.AttributePath? = null
         private set
-    protected var queryCreator: ((AttributePath) -> Query)? = null
+    protected var queryCreator: ((io.github.hanseter.json.queryengine.AttributePath) -> Query)? = null
 
     fun withAttributePath(path: String): T {
         this.attributePath = if (path.isEmpty()) null
-        else AttributePath(path)
+        else io.github.hanseter.json.queryengine.AttributePath(path)
         return this as T
     }
 
     fun withAttributePath(path: List<String>): T {
         this.attributePath = if (path.isEmpty()) null
-        else AttributePath(path)
+        else io.github.hanseter.json.queryengine.AttributePath(path)
         return this as T
     }
 
-    fun withAttributePath(path: AttributePath?): T {
+    fun withAttributePath(path: io.github.hanseter.json.queryengine.AttributePath?): T {
         this.attributePath = path
         return this as T
     }

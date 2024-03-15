@@ -1,4 +1,4 @@
-package com.github.hanseter.json.queryengine
+package io.github.hanseter.json.queryengine
 
 import com.github.hanseter.json.queryengine.queries.AttributeExistsQueryBuilder
 import org.json.JSONObject
