@@ -1,8 +1,8 @@
 package io.github.hanseter.json.queryengine.queries
 
-import com.github.hanseter.json.queryengine.Query
-import com.github.hanseter.json.queryengine.QueryBuilder
-import com.github.hanseter.json.queryengine.QueryableData
+import io.github.hanseter.json.queryengine.Query
+import io.github.hanseter.json.queryengine.QueryBuilder
+import io.github.hanseter.json.queryengine.QueryableData
 
 
 class OrQueryBuilder : QueryWithSubQueriesBuilder<OrQueryBuilder>({ OrQuery(it) }) {

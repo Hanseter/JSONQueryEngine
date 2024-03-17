@@ -1,8 +1,8 @@
 package io.github.hanseter.json.queryengine.queries
 
 import io.github.hanseter.json.queryengine.AttributePath
-import com.github.hanseter.json.queryengine.Query
-import com.github.hanseter.json.queryengine.QueryBuilder
+import io.github.hanseter.json.queryengine.Query
+import io.github.hanseter.json.queryengine.QueryBuilder
 
 abstract class QueryWithSubQueriesBuilder<T>(
     private val queryCreator: ((List<Query>) -> Query)

@@ -1,6 +1,6 @@
 package io.github.hanseter.json.queryengine.queries
 
-import com.github.hanseter.json.queryengine.Query
+import io.github.hanseter.json.queryengine.Query
 
 class AttributeEqualsQueryBuilder : AttributeQueryBuilder<AttributeEqualsQueryBuilder>() {
 

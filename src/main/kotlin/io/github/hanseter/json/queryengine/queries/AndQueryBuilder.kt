@@ -1,7 +1,7 @@
 package io.github.hanseter.json.queryengine.queries
 
-import com.github.hanseter.json.queryengine.Query
-import com.github.hanseter.json.queryengine.QueryableData
+import io.github.hanseter.json.queryengine.Query
+import io.github.hanseter.json.queryengine.QueryableData
 
 
 class AndQueryBuilder : QueryWithSubQueriesBuilder<AndQueryBuilder>({ AndQuery(it) }) {

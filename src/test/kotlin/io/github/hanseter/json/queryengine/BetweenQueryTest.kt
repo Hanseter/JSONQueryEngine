@@ -1,6 +1,6 @@
 package io.github.hanseter.json.queryengine
 
-import com.github.hanseter.json.queryengine.queries.BetweenQueryBuilder
+import io.github.hanseter.json.queryengine.queries.BetweenQueryBuilder
 import org.json.JSONObject
 import org.junit.jupiter.api.Test
 
